@@ -5,7 +5,10 @@ Currently learning linux, I use these on my macbook pro arch linux setup. There 
 - hyprland
 - hyprpaper
 - waybar
-- alacritty
+- kitty
+- zsh
+- nvim
+- starship
 - and others as I go
 
 ## Requirements
