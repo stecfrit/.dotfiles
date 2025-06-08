@@ -1,22 +1,26 @@
-@define-color darkgrey #606060;
+@define-color darkgrey #dd2c43;
 @define-color white    #FFFFFF;
-@define-color warning  #FF7070;
+@define-color grey     rgba(255, 255, 255, 0.4);
+@define-color white    rgba(0, 0, 0, 1);
+@define-color grey     rgba(0, 0, 0, 0.3);
+@define-color warning  #dd2c43;
 @define-color indigo1  #4c539f;
-@define-color indigo2  rgba(9, 7, 31, 0.5);
+@define-color indigo2  rgba(25, 34, 70, 0.2);
 @define-color indigo3  rgba(9, 7, 31, 1.0);
 @define-color accent   rgba(9, 7, 31, 1.0);
 @define-color resize   #10aa70;
 
+@define-color background rgba(25, 30, 36, 0.6);
 
 /* Reset all styles */
 * {
-	border: none;
-	border-radius: 0;
-	min-height: 0;
-	margin: 0;
-	padding: 0;
-	box-shadow: none;
-	text-shadow: none;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  text-shadow: none;
 }
 
    /*----------*/
@@ -25,30 +29,41 @@
 
 /* Keyframes for 1st bar criticals */
 @keyframes blink-critical-text {
-	to {
-		color: @warning;
-	}
+  to {
+    color: @warning;
+  }
 }
 
 /* Keyframes for 1st bar modifiers */
 @keyframes blink-modifier-text {
-	to {
-		color: @resize;
-	}
+  to {
+    color: @resize;
+  }
 }
 
 /* The Main bar */
 #waybar.first {
-  background: @indigo2;
   color: @white;
-  font-family: JetBrains Mono Nerd Font;
-  font-size: 12pt;
+  font-family: Inconsolata Nerd Font;
+  font-size: 13pt;
   font-weight: normal;
-  border-bottom: 2px solid @darkgrey;
+  background: transparent;
+}
+
+.modules-left {
+  background: @background;
+  border-radius: 0 0 5px 0;
+  padding-right: 10px;
+}
+
+.modules-right {
+  background: @background;
+  border-radius: 0 0 0 5px;
+  padding-left: 10px;
 }
 
 #waybar.first button {
-  font-family: JetBrains Mono Nerd Font;
+  font-family: Inconsolata Nerd Font;
   font-size: 10pt;
   font-weight: bold;
   transition: all 0.15s ease-in-out;
@@ -74,6 +89,15 @@
   margin-bottom: 3px;
   background: transparent;
   color: @white;
+}
+
+#waybar.first #window {
+  color: @darkgrey;
+  font-weight: bold;
+}
+
+#waybar.first #tray {
+  margin-left: 10px;
 }
 
 #waybar.first #network.info {
@@ -130,9 +154,8 @@
 
 /* Default workspace settings */
 #waybar.first #workspaces button {
-  color: @darkgrey;
+  color: @grey;
   background: transparent;
-  font-size: 18px;
   padding-left: 3pt;
   padding-right: 2pt;
   border-radius: 20px;
@@ -141,16 +164,18 @@
   margin-left: 3px;
   margin-right: 3px;
   transition: 0.25s ease;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 /* Inactive (on unfocused output) & Active (on focused output) */
 #waybar.first #workspaces button.visible {
-  color: @white;
+  color: @darkgrey;
 }
 
 /* Style when cursor is on the button */
 #waybar.first #workspaces button:hover {
-  color: @white;
+  color: @darkgrey;
 }
 
 /* Custom slashes as spacers */
@@ -158,7 +183,8 @@
 #waybar.first #custom-spacer2,
 #waybar.first #custom-spacer3 {
 	font-size: 12pt;
-	color: @darkgrey;
+	font-weight: bold;
+	color: @grey;
 	background: transparent;
 }
 
@@ -167,8 +193,7 @@ tooltip {
   font-family: JetBrains Mono Nerd Font;
   font-size: 10pt;
   margin: 20px;
-  background: @indigo2;
-  background: red;
+  background: @darkgrey;
   border-radius: 3px;
   transition: opacity 0.3s ease-in-out;
 }
